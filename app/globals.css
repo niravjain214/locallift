@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ll-brand: #2596be;
+  --ll-primary: #0d9488;
+  --ll-primary-dark: #0f766e;
+  --ll-secondary: #f59e0b;
+  --ll-bg: #f4f6f8;
+  --ll-surface: #ffffff;
+  --ll-text: #0f172a;
+  --ll-muted: #64748b;
+  --ll-success: #10b981;
+  --ll-admin: #7c3aed;
+}
+
+@theme inline {
+  --color-ll-brand: var(--ll-brand);
+  --color-ll-primary: var(--ll-primary);
+  --color-ll-primary-dark: var(--ll-primary-dark);
+  --color-ll-secondary: var(--ll-secondary);
+  --color-ll-bg: var(--ll-bg);
+  --color-ll-surface: var(--ll-surface);
+  --color-ll-text: var(--ll-text);
+  --color-ll-muted: var(--ll-muted);
+  --color-ll-success: var(--ll-success);
+  --color-ll-admin: var(--ll-admin);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--ll-bg);
+  color: var(--ll-text);
+  font-family: var(--font-sans);
+}
+
+.dark body {
+  background: rgb(2 6 23);
+  color: rgb(241 245 249);
+}
+
+.ll-input {
+  margin-top: 0.25rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(226 232 240);
+  background: white;
+  padding: 0.75rem 1rem;
+  color: rgb(15 23 42);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.dark .ll-input {
+  border-color: rgb(51 65 85);
+  background: rgb(15 23 42);
+  color: rgb(241 245 249);
+}
+.ll-input::placeholder {
+  color: rgb(148 163 184);
+}
+.ll-input:focus {
+  border-color: rgb(20 184 166);
+  box-shadow: 0 0 0 3px rgb(20 184 166 / 0.15);
+}
+
+/* Shared layout: responsive page shell (Urban Co / marketplace style) */
+.ll-page {
+  @apply mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-5 sm:py-8 md:px-6;
+}
+
+.ll-card {
+  @apply rounded-2xl border border-slate-200/90 bg-white shadow-[0_2px_12px_rgba(15,23,42,0.06)] dark:border-slate-700 dark:bg-slate-900;
+}
+
+.ll-card-pad {
+  @apply p-4 sm:p-6;
+}
+
+.ll-btn-primary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-full bg-teal-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-500 active:scale-[0.98] sm:min-h-12 sm:px-6;
+}
+
+.ll-btn-secondary {
+  @apply inline-flex min-h-11 items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-slate-50;
+}
+
